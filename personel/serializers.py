@@ -12,3 +12,4 @@ class PersonelSerializer(serializers.ModelSerializer):
     class Meta:
         model=Personel
         fields='__all__'
+
