@@ -5,13 +5,15 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model=Department
-        fields=('first_name','last_name','title')
-class PersonelSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model=Personel
         fields='__all__'
 
+class PersonelSerializer(serializers.ModelSerializer):
+
+   class Meta:
+        model = Personel
+        fields = ('first_name',
+                  'last_name',
+                  'title')
 
 class DepartmentPersonelSerializer(serializers.ModelSerializer):
 
