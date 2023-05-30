@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .serializers import DepartmentSerializer,PersonelSerializer
-from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView
+from .serializers import DepartmentSerializer,PersonelSerializer,DepartmentPersonelSerializer
+from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView,ListAPIView
 from .models import Department,Personel
 
 class DepartmentListCreateView(ListCreateAPIView):
@@ -13,11 +13,15 @@ class DepartmentRUDView(RetrieveUpdateDestroyAPIView):
     serializer_class = DepartmentSerializer
 
 
-class PersonnelListCreateView(ListCreateAPIView):
+class PersonelListCreateView(ListCreateAPIView):
     queryset = Personel.objects.all()
     serializer_class = PersonelSerializer
 
 
-class PersonnelRUDView(RetrieveUpdateDestroyAPIView):
+class PersonelRUDView(RetrieveUpdateDestroyAPIView):
     queryset = Personel.objects.all()
     serializer_class = PersonelSerializer
+
+class DepartmentPersonelView(ListAPIView):
+    queryset=Department.objects.all()
+    serializer_class=DepartmentPersonelSerializer
