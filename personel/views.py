@@ -55,7 +55,7 @@ class PersonelRUDView(RetrieveUpdateDestroyAPIView):
     serializer_class = PersonelSerializer
     permission_classes=[IsAuthenticated]
 
-    def put(self,request,**args,**kwargs):
+    def put(self, request, *args, **kwargs):
         if self.request.user.is_superuser or self.request.user.ıs_staff:
             return self.update(request,*args,**kwargs)
         data={
