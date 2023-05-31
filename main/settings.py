@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'user',
     'rest_framework.authtoken',
     'dj_rest_auth',
+    'corsheaders',
 
 ]
 
 MIDDLEWARE = [
+        "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -144,3 +146,15 @@ REST_AUTH = {
     # 'TOKEN_SERIALIZER': 'path.to.custom.TokenSerializer',
     'TOKEN_SERIALIZER': 'user.serializers.CustomTokenSerializer',
 }
+
+# CORS_ALLOWED_ORIGINS = ['*']
+CORS_ALLOW_ALL_ORIGINS = True
+
+# CORS_ALLOW_METHODS = (
+#     "DELETE",
+#     "GET",
+#     "OPTIONS",
+#     "PATCH",
+#     "POST",
+#     "PUT",
+# )
